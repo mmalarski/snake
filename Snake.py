@@ -8,6 +8,7 @@ class SNAKE:
         self.cell_number = cell_number
         self.body = [Vector2(5, 10), Vector2(6, 10), Vector2(7, 10)]
         self.direction = Vector2(1, 0)
+        self.new_block = False
 
     def set_direction(self, value):
         self.direction = value
@@ -19,6 +20,13 @@ class SNAKE:
             pygame.draw.rect(screen, (183, 111, 122), snake_rect)
 
     def move_snake(self):
-        body_copy = self.body[:-1]
+        if self.new_block:
+            body_copy = self.body[:]
+            self.new_block = False
+        else:
+            body_copy = self.body[:-1]
         body_copy.insert(0, body_copy[0] + self.direction)
         self.body = body_copy[:]
+
+    def add_block(self):
+        self.new_block = True
