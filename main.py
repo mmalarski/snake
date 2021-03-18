@@ -30,6 +30,12 @@ while True:
         if event.type == pygame.KEYDOWN:
             if event.key == pygame.K_UP:
                 snake.set_direction(Vector2(0, -1))
+            if event.key == pygame.K_DOWN:
+                snake.set_direction(Vector2(0, 1))
+            if event.key == pygame.K_LEFT:
+                snake.set_direction(Vector2(-1, 0))
+            if event.key == pygame.K_RIGHT:
+                snake.set_direction(Vector2(1, 0))
 
     screen.fill((175, 215, 70))
     collectable.draw_collectable(screen)
