@@ -7,6 +7,7 @@ test_surface = pygame.Surface((100, 100))
 test_surface.fill((50, 60, 70))
 x_pos = 850
 y_pos = 650
+cell_size = 40
 
 while True:
     for event in pygame.event.get():
