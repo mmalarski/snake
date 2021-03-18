@@ -1,6 +1,6 @@
 import sys
 import pygame
-import Snake, Collectable
+import Snake, Collectable, Banana
 
 
 class GAME:
@@ -10,7 +10,7 @@ class GAME:
         self.screen = screen
         self.game_font = pygame.font.Font(None, 25)
         self.snake = Snake.SNAKE(cell_number, cell_size)
-        self.collectable = Collectable.COLLECTABLE(cell_number, cell_size)
+        self.collectable = Banana.BANANA(cell_number, cell_size)
 
     def update(self):
         self.snake.move_snake()
