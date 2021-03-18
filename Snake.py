@@ -30,7 +30,6 @@ class SNAKE:
 
     def add_block(self):
         last_vector = Vector2(self.body[-1].x - self.body[-2].x, self.body[-1].y - self.body[-2].y)
-        print(last_vector)
         body_copy = self.body[:]
         body_copy.insert(len(body_copy), body_copy[-1] + last_vector)
         self.body = body_copy[:]
