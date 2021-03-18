@@ -1,16 +1,18 @@
 import sys
-import pygame
-import Snake, Collectable, Banana
-
+import pygame, Moth
+import Snake, Collectable, Banana, Ant
+SCREEN_UPDATE = pygame.USEREVENT
 
 class GAME:
-    def __init__(self, cell_number, cell_size, screen):
+    def __init__(self, cell_number, cell_size, screen, evt):
         self.cell_number = cell_number
         self.cell_size = cell_size
         self.screen = screen
         self.game_font = pygame.font.Font(None, 25)
         self.snake = Snake.SNAKE(cell_number, cell_size)
-        self.collectable = Banana.BANANA(cell_number, cell_size)
+        self.collectable = Moth.MOTH(cell_number, cell_size, self)
+        self.set_time(150)
+
 
     def update(self):
         self.snake.move_snake()
@@ -46,3 +48,6 @@ class GAME:
         score_y = int(self.cell_size * self.cell_number - 40)
         score_rect = score_surface.get_rect(center=(score_x, score_y))
         self.screen.blit(score_surface, score_rect)
+
+    def set_time(self, speed):
+        pygame.time.set_timer(SCREEN_UPDATE, speed)

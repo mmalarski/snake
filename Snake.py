@@ -1,4 +1,4 @@
-import pygame
+import pygame,sys
 from pygame.math import Vector2
 
 
@@ -8,6 +8,7 @@ class SNAKE:
         self.cell_number = cell_number
         self.body = [Vector2(5, 10), Vector2(4, 10), Vector2(3, 10)]
         self.direction = Vector2(1, 0)
+        self.speed = 150
 
     def set_direction(self, value):
         self.direction = value
@@ -33,3 +34,10 @@ class SNAKE:
         body_copy = self.body[:]
         body_copy.insert(len(body_copy), body_copy[-1] + last_vector)
         self.body = body_copy[:]
+
+    def remove_block(self):
+        if len(self.body) < 4:
+            pygame.quit()
+            sys.exit()
+        else:
+            self.body = self.body[:-1]

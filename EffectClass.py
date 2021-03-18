@@ -1,12 +1,13 @@
-import Collectable
+from Collectable import COLLECTABLE
 
 
-class EFFECT(Collectable):
-    def __init__(self, cell_number, cell_size):
-        super().__init__(self, cell_number, cell_size)
+class EFFECT(COLLECTABLE):
+    def __init__(self, cell_number, cell_size, game):
+        super().__init__(cell_number, cell_size)
+        self.game = game
 
-    def effect(self):
-        print()
+    def effect(self, game):
+        pass
 
     def do(self, snake):
-        self.effect()
+        self.effect(self.game)

@@ -13,11 +13,12 @@ test_surface.fill((50, 60, 70))
 x_pos = 850
 y_pos = 650
 
-
-game = Game.GAME(cell_number, cell_size, screen)
-
 SCREEN_UPDATE = pygame.USEREVENT
-pygame.time.set_timer(SCREEN_UPDATE, 150)
+game = Game.GAME(cell_number, cell_size, screen, SCREEN_UPDATE)
+
+
+
+
 
 while True:
     for event in pygame.event.get():
