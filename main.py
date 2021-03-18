@@ -28,13 +28,17 @@ while True:
             game.snake.move_snake()
         if event.type == pygame.KEYDOWN:
             if event.key == pygame.K_UP:
-                game.snake.set_direction(Vector2(0, -1))
+                if game.snake.direction.y != 1:
+                    game.snake.set_direction(Vector2(0, -1))
             if event.key == pygame.K_DOWN:
-                game.snake.set_direction(Vector2(0, 1))
+                if game.snake.direction.y != -1:
+                    game.snake.set_direction(Vector2(0, 1))
             if event.key == pygame.K_LEFT:
-                game.snake.set_direction(Vector2(-1, 0))
+                if game.snake.direction.x != 1:
+                    game.snake.set_direction(Vector2(-1, 0))
             if event.key == pygame.K_RIGHT:
-                game.snake.set_direction(Vector2(1, 0))
+                if game.snake.direction.x != -1:
+                    game.snake.set_direction(Vector2(1, 0))
 
     screen.fill((175, 215, 70))
     game.draw_elements()
