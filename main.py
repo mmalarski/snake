@@ -1,4 +1,6 @@
-import pygame, sys, Collectable
+import pygame
+import sys
+import Collectable
 
 pygame.init()
 screen = pygame.display.set_mode((1000, 800))
@@ -10,18 +12,13 @@ y_pos = 650
 cell_size = 40
 cell_number = 100
 
-collectable = Collectable.COLLECTABLE()
+collectable = Collectable.COLLECTABLE(cell_number, cell_size)
 
 while True:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             pygame.quit()
             sys.exit()
-    screen.fill((255, 255, 255))
-    screen.blit(test_surface, (x_pos, y_pos))
-    if x_pos != 0:
-        x_pos -= 1
-    if y_pos != 0:
-        y_pos -=1
+    screen.fill((175, 215, 70))
     pygame.display.update()
     clock.tick(60)
