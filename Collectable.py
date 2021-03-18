@@ -18,3 +18,6 @@ class COLLECTABLE:
         self.x = random.randint(0, self.cell_number - 1)
         self.y = random.randint(0, self.cell_number - 1)
         self.pos = Vector2(self.x, self.y)
+
+    def do(self, snake):
+        pass

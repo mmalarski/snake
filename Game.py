@@ -25,7 +25,7 @@ class GAME:
     def check_collision(self):
         if self.collectable.pos == self.snake.body[0]:
             self.collectable.randomise()
-            self.collectable.process_points(self.snake)
+            self.collectable.do(self.snake)
 
     def check_fail(self):
         if not 0 <= self.snake.body[0].x < self.cell_number or not 0 <= self.snake.body[0].y < self.cell_number:

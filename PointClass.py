@@ -7,3 +7,6 @@ class POINT(COLLECTABLE):
 
     def process_points(self, snake):
         pass
+
+    def do(self, snake):
+        self.process_points(snake)
