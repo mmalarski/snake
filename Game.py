@@ -1,3 +1,5 @@
+import sys
+import pygame
 import Snake, Collectable
 
 
@@ -11,7 +13,21 @@ class GAME:
 
     def update(self):
         self.snake.move_snake()
+        self.check_collision()
 
     def draw_elements(self):
         self.collectable.draw_collectable(self.screen)
         self.snake.draw_snake(self.screen)
+
+    def check_collision(self):
+        if self.collectable.pos == self.snake.body[0]:
+            self.collectable.randomise()
+            self.snake.add_block()
+
+    def check_fail(self):
+        if not 0 <= self.snake.body[0].x <= self.cell_number:
+            self.game_over()
+
+    def game_over(self):
+        pygame.quit()
+        sys.exit()

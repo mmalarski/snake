@@ -25,7 +25,7 @@ while True:
             pygame.quit()
             sys.exit()
         if event.type == SCREEN_UPDATE:
-            game.snake.move_snake()
+            game.update()
         if event.type == pygame.KEYDOWN:
             if event.key == pygame.K_UP:
                 game.snake.set_direction(Vector2(0, -1))
