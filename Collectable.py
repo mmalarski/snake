@@ -16,7 +16,7 @@ class COLLECTABLE:
                                        self.cell_size, self.cell_size)
         pygame.draw.rect(screen, (126, 166, 114), collectable_rect)
 
-    def randomise(self)
+    def randomise(self):
         self.x = random.randint(0, self.cell_number - 1)
         self.y = random.randint(0, self.cell_number - 1)
         self.pos = Vector2(self.x, self.y)
