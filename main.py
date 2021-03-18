@@ -1,6 +1,6 @@
 import pygame
 import sys
-import Collectable
+import Collectable, Snake
 
 pygame.init()
 cell_size = 40
@@ -14,6 +14,7 @@ y_pos = 650
 
 
 collectable = Collectable.COLLECTABLE(cell_number, cell_size)
+snake = Snake.SNAKE(cell_number, cell_size)
 
 
 while True:
@@ -23,5 +24,6 @@ while True:
             sys.exit()
     screen.fill((175, 215, 70))
     collectable.draw_collectable(screen)
+    snake.draw_snake(screen)
     pygame.display.update()
     clock.tick(60)
