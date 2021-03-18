@@ -1,6 +1,7 @@
 import pygame
 import sys
 import Collectable, Snake
+from pygame.math import Vector2
 
 pygame.init()
 cell_size = 40
@@ -26,6 +27,9 @@ while True:
             sys.exit()
         if event.type == SCREEN_UPDATE:
             snake.move_snake()
+        if event.type == pygame.KEYDOWN:
+            if event.key == pygame.K_UP:
+                snake.set_direction(Vector2(0, -1))
 
     screen.fill((175, 215, 70))
     collectable.draw_collectable(screen)

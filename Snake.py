@@ -9,6 +9,9 @@ class SNAKE:
         self.body = [Vector2(5, 10), Vector2(6, 10), Vector2(7, 10)]
         self.direction = Vector2(1, 0)
 
+    def set_direction(self, value):
+        self.direction = value
+
     def draw_snake(self, screen):
         for block in self.body:
             snake_rect = pygame.Rect(int(block.x * self.cell_size), int(block.y * self.cell_size),
