@@ -16,15 +16,19 @@ y_pos = 650
 collectable = Collectable.COLLECTABLE(cell_number, cell_size)
 snake = Snake.SNAKE(cell_number, cell_size)
 
+SCREEN_UPDATE = pygame.USEREVENT
+pygame.time.set_timer(SCREEN_UPDATE, 150)
 
 while True:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             pygame.quit()
             sys.exit()
+        if event.type == SCREEN_UPDATE:
+            snake.move_snake()
+
     screen.fill((175, 215, 70))
     collectable.draw_collectable(screen)
     snake.draw_snake(screen)
-    snake.move_snake()
     pygame.display.update()
     clock.tick(60)
