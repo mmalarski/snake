@@ -12,6 +12,7 @@ class COLLECTABLE:
         self.pos = Vector2(self.x, self.y)
 
     def draw_collectable(self, screen):
-        collectable_rect = pygame.Rect(int(self.pos.x * self.cell_size), int(self.pos.y * self.cell_size), self.cell_size, self.cell_size)
+        collectable_rect = pygame.Rect(int(self.pos.x * self.cell_size), int(self.pos.y * self.cell_size),
+                                       self.cell_size, self.cell_size)
         pygame.draw.rect(screen, (126, 166, 114), collectable_rect)
 

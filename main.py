@@ -25,5 +25,6 @@ while True:
     screen.fill((175, 215, 70))
     collectable.draw_collectable(screen)
     snake.draw_snake(screen)
+    snake.move_snake()
     pygame.display.update()
     clock.tick(60)
