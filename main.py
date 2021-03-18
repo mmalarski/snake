@@ -1,4 +1,4 @@
-import pygame, sys
+import pygame, sys, Collectable
 
 pygame.init()
 screen = pygame.display.set_mode((1000, 800))
@@ -8,6 +8,9 @@ test_surface.fill((50, 60, 70))
 x_pos = 850
 y_pos = 650
 cell_size = 40
+cell_number = 100
+
+collectable = Collectable.COLLECTABLE()
 
 while True:
     for event in pygame.event.get():
