@@ -58,3 +58,5 @@ class GAME:
     def set_time(self, speed):
         pygame.time.set_timer(SCREEN_UPDATE, speed)
         self.snake.speed = speed
+
+        self.snake.speed = speed

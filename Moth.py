@@ -1,4 +1,5 @@
 import pygame
+import time
 
 from EffectClass import EFFECT
 
@@ -11,3 +12,6 @@ class MOTH(EFFECT):
 
     def effect(self, game):
         game.set_time(500)
+
+
+
