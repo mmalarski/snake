@@ -1,7 +1,17 @@
 import sys
-import pygame, Moth
-import Snake, Collectable, Banana, Ant
+
+import Moth
+import pygame
+
+import Snake
+
 SCREEN_UPDATE = pygame.USEREVENT
+
+
+def game_over():
+    pygame.quit()
+    sys.exit()
+
 
 class GAME:
     def __init__(self, cell_number, cell_size, screen, evt):
@@ -11,8 +21,8 @@ class GAME:
         self.game_font = pygame.font.Font(None, 25)
         self.snake = Snake.SNAKE(cell_number, cell_size)
         self.collectable = Moth.MOTH(cell_number, cell_size, self)
+        # self.collectable = Banana.BANANA(cell_number, cell_size)
         self.set_time(150)
-
 
     def update(self):
         self.snake.move_snake()
@@ -31,15 +41,11 @@ class GAME:
 
     def check_fail(self):
         if not 0 <= self.snake.body[0].x < self.cell_number or not 0 <= self.snake.body[0].y < self.cell_number:
-            self.game_over()
+            game_over()
 
         for block in self.snake.body[1:]:
             if block == self.snake.body[0]:
-                self.game_over()
-
-    def game_over(self):
-        pygame.quit()
-        sys.exit()
+                game_over()
 
     def draw_score(self):
         score_text = str(len(self.snake.body) - 3)
@@ -51,3 +57,4 @@ class GAME:
 
     def set_time(self, speed):
         pygame.time.set_timer(SCREEN_UPDATE, speed)
+        self.snake.speed = speed
