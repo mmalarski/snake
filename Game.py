@@ -31,7 +31,7 @@ class GAME:
         self.s = Spider.SPIDER(self.cell_number, self.cell_size, self)
         self.m = Moth.MOTH(self.cell_number, self.cell_size, self)
         self.c = Cherry.CHERRY(cell_number, cell_size, self)
-        self.collectables = [self.ap, self.b, self.an, self.w, self.s, self.m, self.c]
+        self.collectables = [self.b, self.an, self.w, self.s, self.m, self.c]
         self.collectable = random.choice(self.collectables)
         self.set_time(150)
 
@@ -42,6 +42,7 @@ class GAME:
 
     def draw_elements(self):
         self.collectable.draw_collectable(self.screen)
+        self.ap.draw_collectable(self.screen)
         self.snake.draw_snake(self.screen)
         self.draw_score()
 
@@ -50,6 +51,9 @@ class GAME:
             self.collectable = random.choice(self.collectables)
             self.collectable.randomise()
             self.collectable.do(self.snake)
+        if self.ap.pos == self.snake.body[0]:
+            self.ap.randomise()
+            self.ap.do(self.snake)
 
     def check_fail(self):
         if not 0 <= self.snake.body[0].x < self.cell_number or not 0 <= self.snake.body[0].y < self.cell_number:
