@@ -78,3 +78,7 @@ class GAME:
     def game_over(self):
         pygame.quit()
         sys.exit()
+
+    def reload_bad_coll(self):
+        self.collectable = random.choice(self.collectables)
+        self.collectable.randomise()

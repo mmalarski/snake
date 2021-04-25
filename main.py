@@ -20,7 +20,7 @@ game = Game.GAME(cell_number, cell_size, screen, SCREEN_UPDATE)
 
 flag = True
 start = 0
-
+reload = time.time()
 while True:
     if game.snake.speed != 150 and flag:
         start = time.time()
@@ -50,6 +50,10 @@ while True:
         game.set_time(150)
         flag = True
         start = 0
+
+    if (time.time() - reload) > 10:
+        game.reload_bad_coll()
+        reload = time.time()
 
     screen.fill((175, 215, 70))
     game.draw_elements()
