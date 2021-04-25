@@ -8,5 +8,5 @@ class POINT(COLLECTABLE):
     def process_points(self, snake):
         pass
 
-    def do(self, snake):
+    def do(self, snake=None):
         self.process_points(snake)

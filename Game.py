@@ -1,6 +1,6 @@
 import sys
 
-import Moth
+import Watermelon
 import pygame
 
 import Snake
@@ -20,7 +20,7 @@ class GAME:
         self.screen = screen
         self.game_font = pygame.font.Font(None, 25)
         self.snake = Snake.SNAKE(cell_number, cell_size)
-        self.collectable = Moth.MOTH(cell_number, cell_size, self)
+        self.collectable = Watermelon.WATERMELON(cell_number, cell_size, self)
         # self.collectable = Banana.BANANA(cell_number, cell_size)
         self.set_time(150)
 
@@ -57,6 +57,4 @@ class GAME:
 
     def set_time(self, speed):
         pygame.time.set_timer(SCREEN_UPDATE, speed)
-        self.snake.speed = speed
-
         self.snake.speed = speed

@@ -9,5 +9,5 @@ class EFFECT(COLLECTABLE):
     def effect(self, game):
         pass
 
-    def do(self, snake):
+    def do(self, snake=None):
         self.effect(self.game)
