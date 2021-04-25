@@ -3,8 +3,8 @@ from EffectClass import EFFECT
 
 class CHERRY(EFFECT):
 
-    def __init__(self, cell_number, cell_size):
-        super().__init__(cell_number, cell_size)
+    def __init__(self, cell_number, cell_size, game):
+        super().__init__(cell_number, cell_size, game)
 
-    def effect(self):
-        print()
+    def effect(self, game):
+        game.set_time(100)

@@ -1,5 +1,12 @@
 import sys
+import random
 
+import Ant
+import Apple
+import Banana
+import Cherry
+import Moth
+import Spider
 import Watermelon
 import pygame
 
@@ -8,9 +15,6 @@ import Snake
 SCREEN_UPDATE = pygame.USEREVENT
 
 
-def game_over():
-    pygame.quit()
-    sys.exit()
 
 
 class GAME:
@@ -20,8 +24,15 @@ class GAME:
         self.screen = screen
         self.game_font = pygame.font.Font(None, 25)
         self.snake = Snake.SNAKE(cell_number, cell_size)
-        self.collectable = Watermelon.WATERMELON(cell_number, cell_size, self)
-        # self.collectable = Banana.BANANA(cell_number, cell_size)
+        self.ap = Apple.APPLE(self.cell_number, self.cell_size)
+        self.b = Banana.BANANA(cell_number, cell_size)
+        self.an = Ant.ANT(self.cell_number, self.cell_size)
+        self.w = Watermelon.WATERMELON(cell_number, cell_size, self)
+        self.s = Spider.SPIDER(self.cell_number, self.cell_size, self)
+        self.m = Moth.MOTH(self.cell_number, self.cell_size, self)
+        self.c = Cherry.CHERRY(cell_number, cell_size, self)
+        self.collectables = [self.ap, self.b, self.an, self.w, self.s, self.m, self.c]
+        self.collectable = random.choice(self.collectables)
         self.set_time(150)
 
     def update(self):
@@ -36,16 +47,17 @@ class GAME:
 
     def check_collision(self):
         if self.collectable.pos == self.snake.body[0]:
+            self.collectable = random.choice(self.collectables)
             self.collectable.randomise()
             self.collectable.do(self.snake)
 
     def check_fail(self):
         if not 0 <= self.snake.body[0].x < self.cell_number or not 0 <= self.snake.body[0].y < self.cell_number:
-            game_over()
+            self.game_over()
 
         for block in self.snake.body[1:]:
             if block == self.snake.body[0]:
-                game_over()
+                self.game_over()
 
     def draw_score(self):
         score_text = str(len(self.snake.body) - 3)
@@ -58,3 +70,7 @@ class GAME:
     def set_time(self, speed):
         pygame.time.set_timer(SCREEN_UPDATE, speed)
         self.snake.speed = speed
+
+    def game_over(self):
+        pygame.quit()
+        sys.exit()

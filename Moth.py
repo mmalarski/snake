@@ -4,7 +4,6 @@ import time
 from EffectClass import EFFECT
 
 
-
 class MOTH(EFFECT):
 
     def __init__(self, cell_number, cell_size, game):
@@ -12,6 +11,3 @@ class MOTH(EFFECT):
 
     def effect(self, game):
         game.set_time(500)
-
-
-
