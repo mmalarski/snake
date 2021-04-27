@@ -14,8 +14,6 @@ def snakelogic():
 
     test_surface = pygame.Surface((100, 100))
     test_surface.fill((50, 60, 70))
-    x_pos = 850
-    y_pos = 650
 
     SCREEN_UPDATE = pygame.USEREVENT
     game = Game.GAME(cell_number, cell_size, screen, SCREEN_UPDATE)

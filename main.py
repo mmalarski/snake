@@ -1,21 +1,36 @@
 from SnakeLogic import snakelogic
 import tkinter as tk
+import tkinter.font as font
+
+
+def playfunction(window):
+    window.destroy()
+    snakelogic()
+
+
+background = '#3ec965'
+buttoncolour = '#278b42'
 
 window = tk.Tk()
 window.geometry("400x300")
-window.config(bg='lightgreen')
+window.config(bg=background)
 window.title("Snake Game")
 
 frame = tk.Frame(window)
+frame.config(bg=background)
 frame.pack()
+frame.place(in_=window, anchor='c', relx=.5, rely=.5)
 
-play_button = tk.Button(frame, text="PLAY", width=40, height=7, bg='green', fg='blue')
+font0 = font.Font(size=30, family='Roboto')
+font1 = font.Font(size=20, weight='bold', family='Roboto')
+
+play_button = tk.Button(frame, command=lambda: playfunction(window), font=font0, text="PLAY", width=6, height=1, bg=buttoncolour, fg='lightblue')
 play_button.pack(side=tk.TOP)
 
-highscore_label = tk.Label(frame, text="HIGHSCORE", bg='green', fg='blue')
+highscore_label = tk.Label(frame, font=font1, text="HIGHSCORE:", bg=background, fg='#1c632f')
 highscore_label.pack(side=tk.TOP)
 
-quit_button = tk.Button(frame, text="QUIT", width=40, height=7, bg='green', fg='blue')
+quit_button = tk.Button(frame, font=font0, text="QUIT", width=6, height=1, bg=buttoncolour, fg='lightblue')
 quit_button.pack(side=tk.TOP)
 
 window.mainloop()
