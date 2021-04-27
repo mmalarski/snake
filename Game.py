@@ -1,7 +1,4 @@
-import sys
 import random
-import pygame
-
 import Ant
 import Apple
 import Banana
@@ -9,7 +6,8 @@ import Cherry
 import Moth
 import Spider
 import Watermelon
-
+import pygame
+import sys
 import Snake
 import RetryPopUp
 
@@ -76,7 +74,6 @@ class GAME:
 
     def game_over(self):
         RetryPopUp.retry()
-        pygame.quit()
         sys.exit()
 
     def reload_bad_coll(self):

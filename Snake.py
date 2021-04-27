@@ -1,5 +1,6 @@
 import pygame,sys
 from pygame.math import Vector2
+import RetryPopUp
 
 
 class SNAKE:
@@ -96,8 +97,7 @@ class SNAKE:
 
     def remove_block(self):
         if len(self.body) < 4:
-            pygame.quit()
-            sys.exit()
+            RetryPopUp.retry()
         else:
             self.body = self.body[:-1]
 

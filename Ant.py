@@ -10,3 +10,4 @@ class ANT(POINT):
 
     def process_points(self, snake):
         snake.remove_block()
+
