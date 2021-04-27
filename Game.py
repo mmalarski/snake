@@ -1,5 +1,6 @@
 import sys
 import random
+import pygame
 
 import Ant
 import Apple
@@ -8,9 +9,9 @@ import Cherry
 import Moth
 import Spider
 import Watermelon
-import pygame
 
 import Snake
+import RetryPopUp
 
 SCREEN_UPDATE = pygame.USEREVENT
 
@@ -74,6 +75,7 @@ class GAME:
         self.snake.speed = speed
 
     def game_over(self):
+        RetryPopUp.retry()
         pygame.quit()
         sys.exit()
 
