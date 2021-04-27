@@ -15,8 +15,6 @@ import Snake
 SCREEN_UPDATE = pygame.USEREVENT
 
 
-
-
 class GAME:
     def __init__(self, cell_number, cell_size, screen, evt):
         self.cell_number = cell_number

@@ -1,3 +1,5 @@
+import pygame
+
 from PointClass import POINT
 from EffectClass import EFFECT
 
@@ -7,6 +9,7 @@ class WATERMELON(EFFECT, POINT):
     def __init__(self, cell_number, cell_size, game):
         super().__init__(cell_number, cell_size, game)
         super(EFFECT, self).__init__(cell_number, cell_size)
+        self.image = pygame.image.load('Graphics/ant.svg').convert_alpha()
 
     def process_points(self, snake):
         snake.add_block()
