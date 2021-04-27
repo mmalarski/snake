@@ -39,16 +39,16 @@ class GAME:
         self.check_fail()
 
     def draw_elements(self):
+        self.snake.draw_snake(self.screen)
         self.collectable.draw_collectable(self.screen, self.collectable.image)
         self.ap.draw_collectable(self.screen, self.ap.image)
-        self.snake.draw_snake(self.screen)
         self.draw_score()
 
     def check_collision(self):
         if self.collectable.pos == self.snake.body[0]:
+            self.collectable.do(self.snake)
             self.collectable = random.choice(self.collectables)
             self.collectable.randomise()
-            self.collectable.do(self.snake)
         if self.ap.pos == self.snake.body[0]:
             self.ap.randomise()
             self.ap.do(self.snake)
