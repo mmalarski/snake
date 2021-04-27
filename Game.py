@@ -9,7 +9,7 @@ import Watermelon
 import pygame
 import sys
 import Snake
-import RetryPopUp
+import GUI
 
 SCREEN_UPDATE = pygame.USEREVENT
 
@@ -73,7 +73,7 @@ class GAME:
         self.snake.speed = speed
 
     def game_over(self):
-        RetryPopUp.retry()
+        GUI.retry()
         sys.exit()
 
     def reload_bad_coll(self):

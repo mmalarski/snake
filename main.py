@@ -1,7 +1,3 @@
-import RetryPopUp as ret
-import tkinter as tk
-import tkinter.font as font
+import GUI
 
-
-
-ret.first_window()
+GUI.first_window()
