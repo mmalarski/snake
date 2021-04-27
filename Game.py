@@ -39,8 +39,8 @@ class GAME:
         self.check_fail()
 
     def draw_elements(self):
-        self.collectable.draw_collectable(self.screen)
-        self.ap.draw_collectable(self.screen)
+        self.collectable.draw_collectable(self.screen, self.collectable.image)
+        self.ap.draw_collectable(self.screen, self.ap.image)
         self.snake.draw_snake(self.screen)
         self.draw_score()
 
