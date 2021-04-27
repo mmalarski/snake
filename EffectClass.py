@@ -2,10 +2,9 @@ from Collectable import COLLECTABLE
 
 
 class EFFECT(COLLECTABLE):
-    def __init__(self, cell_number, cell_size, image, game):
-        super().__init__(cell_number, cell_size, image)
+    def __init__(self, cell_number, cell_size, game):
+        super().__init__(cell_number, cell_size)
         self.game = game
-        self.image = image
 
     def effect(self, game):
         pass

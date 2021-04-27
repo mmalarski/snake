@@ -4,11 +4,10 @@ from pygame.math import Vector2
 
 
 class COLLECTABLE:
-    def __init__(self, cell_number, cell_size, image):
+    def __init__(self, cell_number, cell_size):
         self.cell_number = cell_number
         self.cell_size = cell_size
         self.randomise()
-        self.image = image
 
     def draw_collectable(self, screen):
         collectable_rect = pygame.Rect(int(self.pos.x * self.cell_size), int(self.pos.y * self.cell_size),
