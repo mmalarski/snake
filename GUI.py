@@ -1,3 +1,4 @@
+import os
 import tkinter as tk
 from tkinter import font
 from SnakeLogic import snakelogic
@@ -55,6 +56,18 @@ def quit_function(window_to_close):
     sys.exit()
 
 
+def read():
+    try:
+        file = open('score.txt', 'r')
+        filesize = os.path.getsize("score.txt")
+        if filesize == 0:
+            return 0
+        else:
+            return int(file.read())
+    except FileNotFoundError:
+        print("Nie istnieje plik.")
+
+
 def first_window():
     background = '#3ec965'
     buttoncolour = '#278b42'
@@ -63,6 +76,9 @@ def first_window():
     window.geometry("400x300")
     window.config(bg=background)
     window.title("Snake Game")
+
+    text = tk.StringVar()
+    text.set(read())
 
     frame = tk.Frame(window)
     frame.config(bg=background)
@@ -75,15 +91,23 @@ def first_window():
     play_button = tk.Button(frame, command=lambda: play_function(window), font=font0, text="PLAY", width=6,
                             height=1,
                             bg=buttoncolour, fg='lightblue')
-    play_button.pack(side=tk.TOP)
+    # play_button.pack(side=tk.TOP)
+    play_button.grid(row= 1, column=1)
 
-    highscore_label = tk.Label(frame, font=font1, text="HIGHSCORE:", bg=background, fg='#1c632f')
-    highscore_label.pack(side=tk.TOP)
+    highscore_label1 = tk.Label(frame, font=font1, text="HIGHSCORE: ", bg=background, fg='#1c632f')
+    # highscore_label1.pack(side=tk.TOP)
+    highscore_label1.grid(row= 2, column=1)
+
+    highscore_label2 = tk.Label(frame, font=font1, textvariable=text, bg=background, fg='#1c632f')
+    # highscore_label2.pack(side=tk.RIGHT)
+    highscore_label2.grid(row=2, column=2)
 
     quit_button = tk.Button(frame, command=lambda: quit_function(window), font=font0, text="QUIT", width=6,
                             height=1,
                             bg=buttoncolour, fg='lightblue')
-    quit_button.pack(side=tk.TOP)
+    # quit_button.pack(side=tk.TOP)
+    quit_button.grid(row= 3, column=1)
 
     window.mainloop()
+
 
