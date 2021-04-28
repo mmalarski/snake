@@ -101,5 +101,3 @@ class GAME:
     def reload_bad_coll(self):
         self.collectable = random.choice(self.collectables)
         self.collectable.randomise()
-
-

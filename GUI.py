@@ -109,5 +109,3 @@ def first_window():
     quit_button.grid(row= 3, column=1)
 
     window.mainloop()
-
-
