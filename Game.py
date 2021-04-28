@@ -98,6 +98,6 @@ class GAME:
         GUI.retry()
         sys.exit()
 
-    def reload_bad_coll(self):
+    def reload_coll(self):
         self.collectable = random.choice(self.collectables)
         self.collectable.randomise()

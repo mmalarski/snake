@@ -52,7 +52,7 @@ def snakelogic():
             start = 0
 
         if (time.time() - reload) > 10:
-            game.reload_bad_coll()
+            game.reload_coll()
             reload = time.time()
 
         screen.fill((175, 215, 70))
