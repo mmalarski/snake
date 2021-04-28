@@ -1,4 +1,4 @@
-import pygame,sys
+import pygame
 from pygame.math import Vector2
 import GUI
 
@@ -48,15 +48,6 @@ class SNAKE:
         self.direction = value
 
     def draw_snake(self, screen):
-        # i = 0
-        # for block in self.body:
-        #     snake_rect = pygame.Rect(int(block.x * self.cell_size), int(block.y * self.cell_size),
-        #                              self.cell_size, self.cell_size)
-        #     if i % 2 == 0:
-        #         pygame.draw.rect(screen, (183, 111, 122), snake_rect)
-        #     else:
-        #         pygame.draw.rect(screen, (150, 110, 120), snake_rect)
-        #     i += 1
         self.update_head_graphics()
         self.update_tail_graphics()
         for index, block in enumerate(self.body):
@@ -82,7 +73,6 @@ class SNAKE:
                         screen.blit(self.body_tr, snake_rect)
                     elif previous_block.x == 1 and next_block.y == 1 or previous_block.y == 1 and next_block.x == 1:
                         screen.blit(self.body_br, snake_rect)
-
 
     def move_snake(self):
         body_copy = self.body[:-1]
