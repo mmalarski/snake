@@ -2,7 +2,8 @@ import os
 import tkinter as tk
 from tkinter import font
 from SnakeLogic import snakelogic
-import pygame, sys
+import pygame
+import sys
 
 background = '#3ec965'
 buttoncolour = '#278b42'
@@ -36,8 +37,6 @@ def retry():
     quit_button = tk.Button(frame, font=font0, command=lambda: quit_function(window), text="QUIT", width=6, height=1,
                             bg=buttoncolour, fg='lightblue')
     quit_button.grid(row=6, column=1)
-    # label = tk.Label(frame)
-    # label.grid(row=7, column=1)
     frame.grid_rowconfigure(1, minsize=5)
     frame.grid_rowconfigure(3, minsize=5)
     frame.grid_rowconfigure(5, minsize=5)
@@ -69,9 +68,6 @@ def read():
 
 
 def first_window():
-    background = '#3ec965'
-    buttoncolour = '#278b42'
-
     window = tk.Tk()
     window.geometry("400x300")
     window.config(bg=background)
@@ -91,21 +87,17 @@ def first_window():
     play_button = tk.Button(frame, command=lambda: play_function(window), font=font0, text="PLAY", width=6,
                             height=1,
                             bg=buttoncolour, fg='lightblue')
-    # play_button.pack(side=tk.TOP)
     play_button.grid(row= 1, column=1)
 
     highscore_label1 = tk.Label(frame, font=font1, text="HIGHSCORE: ", bg=background, fg='#1c632f')
-    # highscore_label1.pack(side=tk.TOP)
     highscore_label1.grid(row= 2, column=1)
 
     highscore_label2 = tk.Label(frame, font=font1, textvariable=text, bg=background, fg='#1c632f')
-    # highscore_label2.pack(side=tk.RIGHT)
     highscore_label2.grid(row=2, column=2)
 
     quit_button = tk.Button(frame, command=lambda: quit_function(window), font=font0, text="QUIT", width=6,
                             height=1,
                             bg=buttoncolour, fg='lightblue')
-    # quit_button.pack(side=tk.TOP)
     quit_button.grid(row= 3, column=1)
 
     window.mainloop()
