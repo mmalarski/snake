@@ -1,3 +1,4 @@
+import os
 import random
 import Ant
 import Apple
@@ -72,10 +73,33 @@ class GAME:
         pygame.time.set_timer(SCREEN_UPDATE, speed)
         self.snake.speed = speed
 
+    def save_to_file(self):
+        try:
+            file = open('score.txt', 'w')
+            file.write(str(len(self.snake.body)-3))
+        except FileNotFoundError:
+            print("Nie podano pliku do odbioru.")
+
+    def read_file(self):
+        try:
+            file = open('score.txt', 'r')
+            filesize = os.path.getsize("score.txt")
+            if filesize == 0:
+                self.save_to_file()
+            else:
+                score = int(file.read())
+                if score < len(self.snake.body) - 3:
+                    self.save_to_file()
+        except FileNotFoundError:
+            print("Nie istnieje plik.")
+
     def game_over(self):
+        self.read_file()
         GUI.retry()
         sys.exit()
 
     def reload_bad_coll(self):
         self.collectable = random.choice(self.collectables)
         self.collectable.randomise()
+
+
