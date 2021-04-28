@@ -7,5 +7,5 @@ class SPIDER(EFFECT):
         super().__init__(cell_number, cell_size, game)
         self.image = pygame.transform.scale(pygame.image.load('Graphics/spider.png').convert_alpha(), (cell_size, cell_size))
 
-    def effect(self, game):
-        game.game_over()
+    def effect(self):
+        self.game.game_over()

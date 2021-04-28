@@ -9,5 +9,5 @@ class CHERRY(EFFECT):
         self.image = pygame.transform.scale(pygame.image.load('Graphics/cherry.png').convert_alpha(),
                                             (cell_size, cell_size))
 
-    def effect(self, game):
-        game.set_time(100)
+    def effect(self):
+        self.game.set_time(100)

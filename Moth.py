@@ -10,5 +10,5 @@ class MOTH(EFFECT):
         self.image = pygame.transform.scale(pygame.image.load('Graphics/moth.png').convert_alpha(),
                                             (cell_size, cell_size))
 
-    def effect(self, game):
-        game.set_time(500)
+    def effect(self):
+        self.game.set_time(500)

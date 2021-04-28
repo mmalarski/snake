@@ -14,9 +14,9 @@ class WATERMELON(EFFECT, POINT):
         snake.add_block()
         snake.add_block()
 
-    def effect(self, game):
-        game.set_time(100)
+    def effect(self):
+        self.game.set_time(100)
 
     def do(self, snake=None):
         self.process_points(snake)
-        self.effect(self.game)
+        self.effect()
